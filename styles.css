@@ -1,0 +1,262 @@
+/* Reset e configurações base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+}
+
+/* Container principal */
+.container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fef2f2 0%, #ffffff 50%, #fef2f2 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Seção do perfil */
+.profile-section {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fade-in 0.8s ease-out;
+}
+
+.logo-container {
+    width: 8rem;
+    height: 8rem;
+    margin: 0 auto 1rem auto;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #6b7280;
+    max-width: 24rem;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Links sociais */
+.social-links {
+    width: 100%;
+    max-width: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.social-card {
+    background: #ffffff;
+    border-radius: 0.75rem;
+    border: 1px solid #fecaca;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    animation: slide-up 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.social-card:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+.social-button {
+    width: 100%;
+    height: 4rem;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
+}
+
+.social-button:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+    transform: translateY(-2px);
+}
+
+.social-button:active {
+    transform: translateY(0);
+}
+
+.button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.button-content span {
+    text-transform: capitalize;
+}
+
+/* Footer */
+.footer {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.footer p {
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+/* Animações */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação com delay para os cards */
+.social-card[data-delay="0"] {
+    animation-delay: 0ms;
+}
+
+.social-card[data-delay="150"] {
+    animation-delay: 150ms;
+}
+
+.social-card[data-delay="300"] {
+    animation-delay: 300ms;
+}
+
+/* Estilos de seleção personalizados */
+::selection {
+    background-color: rgba(220, 38, 38, 0.2);
+    color: #dc2626;
+}
+
+/* Estilos de foco para acessibilidade */
+.social-button:focus-visible {
+    outline: 2px solid #dc2626;
+    outline-offset: 2px;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+    .container {
+        padding: 0.5rem;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .social-links {
+        max-width: 18rem;
+    }
+    
+    .logo-container {
+        width: 6rem;
+        height: 6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.75rem;
+    }
+    
+    .social-links {
+        max-width: 16rem;
+    }
+    
+    .social-button {
+        height: 3.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Efeitos adicionais */
+.social-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.social-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.social-button:hover::before {
+    left: 100%;
+}
+
+/* Estados de carregamento */
+@media (prefers-reduced-motion: reduce) {
+    .social-card,
+    .profile-section {
+        animation: none;
+    }
+    
+    .social-button {
+        transition: none;
+    }
+}
